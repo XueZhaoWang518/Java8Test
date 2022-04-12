@@ -10,7 +10,8 @@ public class InverseReduce {
 
     private Random random = new Random();
 
-    public InverseReduce() {}
+    public InverseReduce() {
+    }
 
     public InverseReduce(Random random) {
         this.random = random;
@@ -19,7 +20,7 @@ public class InverseReduce {
     public List<Integer> divideToSmaller(int number) {
         List<Integer> resList = new ArrayList<Integer>();
         int i = this.random.nextInt(3);
-        while(number - i>0){
+        while (number - i > 0) {
             number -= i;
             resList.add(Integer.valueOf(number));
         }

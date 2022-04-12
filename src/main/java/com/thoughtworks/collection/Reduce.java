@@ -14,7 +14,7 @@ public class Reduce {
 
     public Reduce(List<Integer> arrayList) {
         this.arrayList = arrayList;
-        this.stas= this.arrayList.stream().mapToInt(x->x).summaryStatistics();
+        this.stas = this.arrayList.stream().mapToInt(x -> x).summaryStatistics();
 
     }
 
@@ -36,7 +36,7 @@ public class Reduce {
         int size = this.arrayList.size();
         int a = this.arrayList.stream().collect(Collectors.toList()).get(size / 2);
         int b = this.arrayList.stream().collect(Collectors.toList()).get(size / 2 - 1);
-        double res = ((double) a + (double)b) / 2;
+        double res = ((double) a + (double) b) / 2;
         return res;
     }
 
@@ -44,15 +44,15 @@ public class Reduce {
         int size = this.arrayList.size();
         int a = this.arrayList.stream().sorted().collect(Collectors.toList()).get(size / 2);
         int b = this.arrayList.stream().sorted().collect(Collectors.toList()).get(size / 2 - 1);
-        if(size % 2 == 1) return (double) b;
-        else return ((double) a + (double)b) / 2;
+        if (size % 2 == 1) return (double) b;
+        else return ((double) a + (double) b) / 2;
     }
 
     public int getFirstEven() {
         Optional<Integer> res = this.arrayList.stream().filter(x -> x % 2 == 0).findFirst();
         int firstEven = -1;
-        if(res.isPresent()){
-            firstEven= res.get();
+        if (res.isPresent()) {
+            firstEven = res.get();
         }
         return firstEven;
     }
@@ -60,19 +60,19 @@ public class Reduce {
     public int getIndexOfFirstEven() {
         Optional<Integer> res = this.arrayList.stream().filter(x -> x % 2 == 0).findFirst();
         int firstEven = -1;
-        if(res.isPresent()){
+        if (res.isPresent()) {
             firstEven = this.arrayList.indexOf(res.get());
         }
         return firstEven;
     }
 
     public boolean isEqual(List<Integer> arrayList) {
-        if(this.arrayList.size() != arrayList.size()){
+        if (this.arrayList.size() != arrayList.size()) {
             return false;
-        }else{
-            for(int i=0; i<arrayList.size(); i++){
+        } else {
+            for (int i = 0; i < arrayList.size(); i++) {
 
-                if(arrayList.get(i) != this.arrayList.get(i)){
+                if (arrayList.get(i) != this.arrayList.get(i)) {
                     return false;
                 }
             }
@@ -81,20 +81,19 @@ public class Reduce {
     }
 
 
-
     public int getLastOdd() {
-        Optional<Integer> res = this.arrayList.stream().filter(x -> x % 2 == 1).reduce((first, second)->second);
+        Optional<Integer> res = this.arrayList.stream().filter(x -> x % 2 == 1).reduce((first, second) -> second);
         int lastOdd = -1;
-        if(res.isPresent()){
+        if (res.isPresent()) {
             lastOdd = res.get();
         }
         return lastOdd;
     }
 
     public int getIndexOfLastOdd() {
-        Optional<Integer> res = this.arrayList.stream().filter(x -> x % 2 == 1).reduce((first, second)->second);
+        Optional<Integer> res = this.arrayList.stream().filter(x -> x % 2 == 1).reduce((first, second) -> second);
         int lastOdd = -1;
-        if(res.isPresent()){
+        if (res.isPresent()) {
             lastOdd = this.arrayList.indexOf(res.get());
         }
         return lastOdd;

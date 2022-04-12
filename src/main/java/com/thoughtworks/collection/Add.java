@@ -9,14 +9,14 @@ import java.util.Optional;
 public class Add {
     public int getSumOfEvens(int leftBorder, int rightBorder) {
         List<Integer> array = new ArrayList<Integer>();
-        int left=0;
-        int right=0;
+        int left = 0;
+        int right = 0;
         if (leftBorder < rightBorder) {
             left = leftBorder;
             right = rightBorder;
         } else {
-            left=rightBorder;
-            right=leftBorder;
+            left = rightBorder;
+            right = leftBorder;
         }
         while (left <= right) {
             array.add(left++);
@@ -28,14 +28,14 @@ public class Add {
 
     public int getSumOfOdds(int leftBorder, int rightBorder) {
         List<Integer> array = new ArrayList<Integer>();
-        int left=0;
-        int right=0;
+        int left = 0;
+        int right = 0;
         if (leftBorder < rightBorder) {
             left = leftBorder;
             right = rightBorder;
         } else {
-            left=rightBorder;
-            right=leftBorder;
+            left = rightBorder;
+            right = leftBorder;
         }
         while (left <= right) {
             array.add(left++);
@@ -52,16 +52,13 @@ public class Add {
 
     public List<Integer> getTripleOfOddAndAddTwo(List<Integer> arrayList) {
         List<Integer> myList = new ArrayList<Integer>();
-        Iterator<Integer> it =arrayList.iterator();
-        while(it.hasNext()){
-            int tmp= it.next();
-            int res=0;
-            if(tmp%2==1)
-            {
-                res= tmp * 3 + 2;
-            }
-            else
-            {
+        Iterator<Integer> it = arrayList.iterator();
+        while (it.hasNext()) {
+            int tmp = it.next();
+            int res = 0;
+            if (tmp % 2 == 1) {
+                res = tmp * 3 + 2;
+            } else {
                 res = tmp;
             }
             myList.add(res);
@@ -101,7 +98,7 @@ public class Add {
 
     public List<Integer> sortByEvenAndOdd(List<Integer> arrayList) {
         List<Integer> evenList = arrayList.stream().filter(x -> x % 2 == 0).sorted().collect(Collectors.toList());
-        List<Integer> oddList=arrayList.stream().filter(x->x%2==1).sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+        List<Integer> oddList = arrayList.stream().filter(x -> x % 2 == 1).sorted(Comparator.reverseOrder()).collect(Collectors.toList());
         evenList.addAll(oddList);
         return evenList;
 
@@ -109,13 +106,13 @@ public class Add {
 
     public List<Integer> getProcessedList(List<Integer> arrayList) {
         List<Integer> myList = new ArrayList<Integer>();
-        Iterator<Integer> it =arrayList.iterator();
+        Iterator<Integer> it = arrayList.iterator();
         if (arrayList.size() <= 1) {
             return myList;
         }
         int first = it.next();
         int second = 0;
-        while(it.hasNext()){
+        while (it.hasNext()) {
             second = first;
             first = it.next();
             int res = (first + second) * 3;

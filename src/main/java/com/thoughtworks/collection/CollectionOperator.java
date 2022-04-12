@@ -50,12 +50,12 @@ public class CollectionOperator {
 
     public int popLastElement(int[] array) {
         List<Integer> myList = Arrays.stream(array).boxed().collect(Collectors.toList());
-       return  myList.stream().reduce((first, second) -> second).orElse(0);
+        return myList.stream().reduce((first, second) -> second).orElse(0);
     }
 
     public List<Integer> popCommonElement(int[] firstArray, int[] secondArray) {
         List commonList = Arrays.stream(firstArray).boxed().collect(Collectors.toList());
-        List secondList= Arrays.stream(secondArray).boxed().collect(Collectors.toList());
+        List secondList = Arrays.stream(secondArray).boxed().collect(Collectors.toList());
         commonList.retainAll(secondList);
 
         return commonList;
@@ -63,7 +63,7 @@ public class CollectionOperator {
 
     public List<Integer> addUncommonElement(Integer[] firstArray, Integer[] secondArray) {
         List unCommonList = Arrays.stream(firstArray).collect(Collectors.toList());
-        List secondList= Arrays.stream(secondArray).collect(Collectors.toList());
+        List secondList = Arrays.stream(secondArray).collect(Collectors.toList());
         secondList.removeAll(unCommonList);
         unCommonList.addAll(secondList);
 

@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 public class Flatten {
 
     Integer[][] array;
+
     public Flatten(Integer[][] array) {
         this.array = array;
     }

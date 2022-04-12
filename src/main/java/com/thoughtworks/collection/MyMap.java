@@ -27,6 +27,7 @@ public class MyMap {
     public List<String> mapLetter() {
         return this.array.stream().map(x -> letters[x - 1]).collect(Collectors.toList());
     }
+
     public String conversion(Integer currentElement) {
         StringBuffer result = new StringBuffer();
         if (currentElement <= 26) {
@@ -58,6 +59,6 @@ public class MyMap {
 
     public List<Integer> sortFromSmall() {
         //throw new NotImplementedException();
-        return  this.array.stream().sorted().collect(Collectors.toList());
+        return this.array.stream().sorted().collect(Collectors.toList());
     }
 }
