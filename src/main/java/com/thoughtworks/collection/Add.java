@@ -66,8 +66,8 @@ public class Add {
         return myList;
     }
 
-    public int getSumOfProcessedOdds(List<Integer> arrayList) {
-        int sum = arrayList.stream().filter(x -> x % 2 == 1).map(i -> 3 * i + 5).reduce(Integer::sum).orElse(0);
+    public Optional<Integer> getSumOfProcessedOdds(List<Integer> arrayList) {
+        Optional<Integer> sum = arrayList.stream().filter(x -> x % 2 == 1).map(i -> 3 * i + 5).reduce(Integer::sum);
         return sum;
     }
 
