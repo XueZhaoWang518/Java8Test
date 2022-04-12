@@ -5,6 +5,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.Optional;
+import java.util.stream.IntStream;
 
 public class Add {
     public int getSumOfEvens(int leftBorder, int rightBorder) {
@@ -27,21 +28,8 @@ public class Add {
 
 
     public int getSumOfOdds(int leftBorder, int rightBorder) {
-        List<Integer> array = new ArrayList<Integer>();
-        int left = 0;
-        int right = 0;
-        if (leftBorder < rightBorder) {
-            left = leftBorder;
-            right = rightBorder;
-        } else {
-            left = rightBorder;
-            right = leftBorder;
-        }
-        while (left <= right) {
-            array.add(left++);
-        }
-        int sum = array.stream().filter(x -> x % 2 == 1).reduce(Integer::sum).orElse(0);
-        return sum;
+        IntStream intStream = leftBorder < rightBorder ? IntStream.range(leftBorder, rightBorder) : IntStream.range(rightBorder, leftBorder);
+        return intStream.filter(x -> x % 2 == 1).sum();
 
     }
 
@@ -66,8 +54,8 @@ public class Add {
         return myList;
     }
 
-    public Optional<Integer> getSumOfProcessedOdds(List<Integer> arrayList) {
-        Optional<Integer> sum = arrayList.stream().filter(x -> x % 2 == 1).map(i -> 3 * i + 5).reduce(Integer::sum);
+    public int getSumOfProcessedOdds(List<Integer> arrayList) {
+        int sum = arrayList.stream().filter(x -> x % 2 == 1).mapToInt(i -> 3 * i + 5).sum();
         return sum;
     }
 
