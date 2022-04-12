@@ -129,7 +129,7 @@ public class AddTest {
     }
 
     @Test
-    public void should_sort_by_even_and_odd() {
+    public void getTripleOfOddAndAddTwo() {
         //排序数组 结果使数组偶数在递增在前，奇数递减在后
         Add add = new Add();
 
